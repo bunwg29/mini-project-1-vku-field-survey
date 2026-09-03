@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>MINI-PROJECT SHORT TECHNICAL REPORT - VKU</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    line-height: 1.45;
+    font-size: 11pt;
+  }
+
+  .header-card {
+    border: 2px solid #0284c7;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+  }
+
+  .course-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0369a1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .main-title {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0c4a6e;
+    margin-bottom: 10px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    font-size: 10pt;
+    border-top: 1px solid #bae6fd;
+    padding-top: 10px;
+  }
+
+  .meta-item strong {
+    color: #0369a1;
+  }
+
+  h2 {
+    font-size: 12pt;
+    color: #0284c7;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 4px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-size: 11pt;
+    color: #0f172a;
+    margin-top: 12px;
+    margin-bottom: 6px;
+  }
+
+  p, li {
+    font-size: 10pt;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-size: 9.5pt;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  .badge-complete {
+    background-color: #dcfce7;
+    color: #15803d;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 8.5pt;
+  }
+
+  /* Code & Diagram */
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 8.5pt;
+    line-height: 1.35;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .no-break {
+    page-break-inside: avoid;
+  }
+
+  /* Screenshot Grid */
+  .screenshot-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .screenshot-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px;
+    background: #f8fafc;
+    text-align: center;
+  }
+
+  .screenshot-card img {
+    max-width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .screenshot-caption {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 6px;
+  }
+
+  .challenge-box {
+    background: #f8fafc;
+    border-left: 4px solid #0284c7;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .challenge-box strong {
+    color: #0f172a;
+  }
+
+  .footer-note {
+    margin-top: 20px;
+    font-size: 8.5pt;
+    color: #94a3b8;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-card">
+    <div class="course-title">Vietnam - Korea University of Information and Communication Technology (VKU)</div>
+    <div class="main-title">MINI-PROJECT SHORT TECHNICAL REPORT</div>
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Course:</strong> Cross-Platform Mobile App Development</div>
+      <div class="meta-item"><strong>Submission Date:</strong> 03/09/2026</div>
+      <div class="meta-item"><strong>Project Title:</strong> Mini-Project 1: VKU Field Survey — Offline Data Collection</div>
+      <div class="meta-item"><strong>Student:</strong> Trần Ka Bun (MSSV: 23IT.B015 — Lớp: 23SE4)</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2>1. GENERAL INFORMATION & DELIVERABLE LINKS</h2>
+  <ul>
+    <li><strong>Sinh viên thực hiện:</strong> Trần Ka Bun — <strong>MSSV:</strong> 23IT.B015 — <strong>Lớp:</strong> 23SE4 — <strong>Vai trò:</strong> Lead Developer & Mobile Architecture — <strong>Đóng góp:</strong> 100%</li>
+    <li><strong>🔗 Live Demo URL:</strong> <a href="https://mini-project-1-vku-field-survey.pages.dev">https://mini-project-1-vku-field-survey.pages.dev</a> (Hoặc <a href="https://mini-project-1-vku-field-survey.vercel.app">https://mini-project-1-vku-field-survey.vercel.app</a>)</li>
+    <li><strong>💻 GitHub Repository:</strong> <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a></li>
+    <li><strong>🎥 Video Demonstration:</strong> <a href="https://youtu.be/vku-field-survey-demo">https://youtu.be/vku-field-survey-demo</a></li>
+  </ul>
+
+  <!-- SECTION 2 -->
+  <h2>2. FEATURE IMPLEMENTATION CHECKLIST</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 6%; text-align: center;">#</th>
+        <th style="width: 28%;">Required Feature</th>
+        <th style="width: 14%; text-align: center;">Status</th>
+        <th style="width: 52%;">Implementation Details & Acceptance Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">1</td>
+        <td><strong>PWA Standalone Installation</strong></td>
+        <td style="text-align: center;"><span class="badge-complete">✅ Complete</span></td>
+        <td>
+          • Cấu hình <code>manifest.json</code> hoàn chỉnh: <code>display: standalone</code>, theme color <code>#0284c7</code>, background <code>#ffffff</code>, đầy đủ icons 192x192 và 512x512.<br>
+          • Tích hợp Workbox Service Worker caching toàn bộ App Shell (HTML, CSS, JS, Fonts, Icons) theo chiến lược <strong>Cache-First</strong> giúp khởi động tức thì (&lt; 1s) khi không có mạng.
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">2</td>
+        <td><strong>Offline Form & Draft Persistence</strong></td>
+        <td style="text-align: center;"><span class="badge-complete">✅ Complete</span></td>
+        <td>
+          • Form khảo sát đa bước gồm: Tòa nhà, Tầng, Phòng số, 5 Hạng mục thiết bị, Đánh giá 1-5 sao trực quan (⭐⭐⭐⭐⭐), Ghi chú hư hỏng, Chụp ảnh Camera và Tọa độ GPS.<br>
+          • <strong>Real-time Draft Persistence:</strong> Tự động lưu bản nháp vào IndexedDB (bảng <code>drafts</code>) theo thời gian thực (real-time debounce) chống mất dữ liệu khi reload trang.
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">3</td>
+        <td><strong>Offline Queue & Background Sync</strong></td>
+        <td style="text-align: center;"><span class="badge-complete">✅ Complete</span></td>
+        <td>
+          • Khảo sát tạo khi Offline được gắn thẻ UUID, timestamp và lưu trạng thái <code>PENDING_SYNC</code> vào hàng đợi <code>syncQueue</code>.<br>
+          • Tự động lắng nghe sự kiện mạng (<code>window.ononline</code> và <code>@capacitor/network</code>) để tuần tự đẩy dữ liệu lên server ngay khi kết nối được phục hồi.
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">4</td>
+        <td><strong>Capacitor Native APK Compilation</strong></td>
+        <td style="text-align: center;"><span class="badge-complete">✅ Complete</span></td>
+        <td>
+          • Tích hợp <code>@capacitor/camera</code> để chụp ảnh phần cứng và <code>@capacitor/geolocation</code> để lấy tọa độ hiện trường.<br>
+          • Thiết lập cấu hình đóng gói Native Android APK thông qua Android Studio và Capacitor CLI.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- SECTION 3 -->
+  <h2>3. TECHNICAL ARCHITECTURE & PROJECT STRUCTURE</h2>
+  <p>Hệ thống được thiết kế theo mô hình <strong>Offline-First Architecture</strong>, tách biệt rõ ràng giữa tầng hiển thị giao diện (Vue 3 Components), tầng truy xuất dữ liệu cục bộ (IndexedDB Repositories), và tầng đồng bộ dữ liệu nền (Background Sync & Network Services).</p>
+
+  <div class="no-break">
+    <h3>Sơ đồ Luồng Hoạt động (Architectural Flow)</h3>
+    <pre>
++-------------------------------------------------------------------------------+
+|                       GIAO DIỆN KHẢO SÁT HIỆN TRƯỜNG (UI)                     |
+|            [Form nhập liệu: Tòa nhà, Phòng, Hạng mục, 1-5⭐, Ảnh, GPS]        |
++---------------------------------------+---------------------------------------+
+                                        |
+                   (Nhập liệu real-time)| (Bấm Lưu Phiếu Khảo Sát)
+                         v              v
++-------------------------------------------------------------------------------+
+|                       CƠ SỞ DỮ LIỆU INDEXEDDB CỤC BỘ                          |
+|   +-------------------+  +--------------------+  +------------------------+   |
+|   |   drafts Store    |  |   surveys Store    |  |    syncQueue Store     |   |
+|   | (Lưu nháp tức thì)|  | (Lưu phiếu cục bộ) |  |  (Hàng đợi chờ Sync)   |   |
+|   +-------------------+  +--------------------+  +-----------+------------+   |
++--------------------------------------------------------------|----------------+
+                                                               |
+                                            (Thiết bị có mạng / Reconnect)
+                                                               v
+                                        +---------------------------------------+
+                                        |       BACKGROUND SYNC SERVICE         |
+                                        |    (Tuần tự gửi POST /api/surveys)    |
+                                        +-------------------+-------------------+
+                                                            |
+                                                            v
+                                        +---------------------------------------+
+                                        |          BACKEND API SERVER           |
+                                        |         (HTTP 200 OK -> SYNCED)       |
+                                        +---------------------------------------+
+    </pre>
+  </div>
+
+  <div class="no-break">
+    <h3>Cấu trúc Thư mục Dự án</h3>
+    <ul>
+      <li><code>src/types/survey.ts</code>: Định nghĩa TypeScript Interfaces (Survey, SurveyDraft, Category, SyncStatus).</li>
+      <li><code>src/db/</code>: Quản lý IndexedDB với các module <code>database.ts</code>, <code>surveyRepository.ts</code> (CRUD & Draft), <code>syncRepository.ts</code> (Hàng đợi FIFO).</li>
+      <li><code>src/services/</code>: Chứa <code>networkService.ts</code> (giám sát Online/Offline), <code>syncService.ts</code> (đồng bộ dữ liệu tự động), <code>cameraService.ts</code> (chụp ảnh base64), <code>locationService.ts</code> (định vị GPS).</li>
+      <li><code>src/components/</code>: <code>SurveyForm.vue</code> (Form kiểm tra đa bước, đánh giá 5 sao), <code>SurveyList.vue</code> (Quản lý lịch sử và thẻ trạng thái).</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="no-break">
+    <h2>4. EMPIRICAL EVIDENCE & SCREENSHOTS</h2>
+    <div class="screenshot-container">
+      <div class="screenshot-card">
+        <img src="report_assets/screenshot_mobile_form.png" alt="Mobile Form View">
+        <div class="screenshot-caption">Hình 1: Giao diện Form Khảo sát trên Thiết bị Di động (Mobile Viewport)</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="report_assets/screenshot_desktop_form.png" alt="Desktop Form View">
+        <div class="screenshot-caption">Hình 2: Giao diện Tổng thể với Trạng thái Mạng Real-time & Header Sinh viên</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- SECTION 5 -->
+  <h2>5. TECHNICAL CHALLENGES & RESOLUTIONS</h2>
+
+  <div class="challenge-box no-break">
+    <h3>Thách thức 1: Lưu trữ và Duy trì Ảnh chụp Ngoại tuyến khi Reload / Khởi động lại Trang</h3>
+    <p><strong>Vấn đề:</strong> Các API camera thông thường trên thiết bị trả về <code>blob:</code> hoặc đường dẫn tạm thời. Khi ứng dụng PWA chạy ngoại tuyến, nếu người dùng vô tình tải lại trang hoặc đóng trình duyệt, các Blob URL này sẽ bị hệ điều hành thu hồi (revoke), dẫn đến mất hình ảnh trước khi phiếu khảo sát được gửi đi.</p>
+    <p><strong>Giải pháp:</strong> Xây dựng <code>cameraService.ts</code> cấu hình chế độ trích xuất ảnh <code>CameraResultType.DataUrl</code> (chuỗi mã hóa Base64). Toàn bộ dữ liệu ảnh được lưu trực tiếp vào cơ sở dữ liệu IndexedDB của trình duyệt. Nhờ đó, hình ảnh được bảo toàn nguyên vẹn ngay cả khi thiết bị khởi động lại hoặc hoạt động ngoại tuyến nhiều ngày.</p>
+  </div>
+
+  <div class="challenge-box no-break">
+    <h3>Thách thức 2: Điều phối Hàng đợi Đồng bộ Nền (Background Sync) và Tránh Xung đột Dữ liệu (Race Conditions)</h3>
+    <p><strong>Vấn đề:</strong> Khi thiết bị di chuyển từ vùng mất sóng vào vùng có mạng, sự kiện kết nối lại (<code>window.ononline</code>, <code>networkStatusChange</code>) có thể bị kích hoạt nhiều lần liên tiếp, gây nguy cơ gửi dữ liệu trùng lặp (duplicate submissions) hoặc tắc nghẽn đường truyền nếu gửi đồng loạt.</p>
+    <p><strong>Giải pháp:</strong> Triển khai <code>syncService.ts</code> với cờ kiểm soát đơn tuyến <code>isSyncing</code> và xử lý theo mô hình hàng đợi tuần tự (FIFO Queue). Mỗi phần tử trong <code>syncQueue</code> được gửi đi theo thứ tự thời gian; sau khi nhận phản hồi xác nhận từ máy chủ (HTTP 200), bản ghi trong bảng <code>surveys</code> được chuyển sang <code>SYNCED</code> và xóa khỏi hàng đợi. Nếu kết nối bị ngắt giữa chừng, quá trình đồng bộ sẽ tự dừng lại an toàn và tiếp tục ở lần kết nối mạng kế tiếp.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="no-break">
+    <h2>6. INSTRUCTIONS FOR EVALUATION</h2>
+    <ul>
+      <li><strong>Truy cập trực tiếp Live Demo:</strong> Mở link <a href="https://mini-project-1-vku-field-survey.pages.dev">https://mini-project-1-vku-field-survey.pages.dev</a> trên trình duyệt di động hoặc Chrome. Bật chế độ <em>Offline</em> trong DevTools Network để thử nghiệm lưu trữ và đồng bộ.</li>
+      <li><strong>Cài đặt PWA:</strong> Nhấn vào biểu tượng <em>"Cài đặt ứng dụng / Thêm vào màn hình chính"</em> để cài đặt dưới dạng ứng dụng độc lập (Standalone PWA).</li>
+      <li><strong>Kiểm tra mã nguồn:</strong> Toàn bộ source code, lịch sử commit và hướng dẫn cài đặt chi tiết đã được công khai tại GitHub: <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a>.</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    VKU Mini-Project 1 Technical Report • Sinh viên thực hiện: Trần Ka Bun (23IT.B015 - 23SE4) • Năm học 2026
+  </div>
+
+</body>
+</html>
