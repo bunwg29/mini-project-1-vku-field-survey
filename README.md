@@ -9,9 +9,8 @@
 ## 1. GENERAL INFORMATION & DELIVERABLE LINKS
 * **Team Members:**
   1. **Trần Ka Bun** — Student ID: **23IT.B015** — Class: **23SE4** — Role: **Lead Developer / Full-stack Mobile Architecture** — Contribution: **100%**
-* **🔗 Live Demo URL:** [https://mini-project-1-vku-field-survey.pages.dev](https://mini-project-1-vku-field-survey.pages.dev) *(Hoặc Vercel: [https://mini-project-1-vku-field-survey.vercel.app](https://mini-project-1-vku-field-survey.vercel.app))*
+* **🔗 Live Demo URL:** [https://mini-project-1-vku-field-survey.vercel.app/](https://mini-project-1-vku-field-survey.vercel.app/)
 * **💻 GitHub Repository:** [https://github.com/bunwg29/mini-project-1-vku-field-survey](https://github.com/bunwg29/mini-project-1-vku-field-survey)
-* **🎥 Video Demo (Optional):** [https://youtu.be/vku-field-survey-demo](https://youtu.be/vku-field-survey-demo)
 
 ---
 
