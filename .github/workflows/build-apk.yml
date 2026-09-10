@@ -41,7 +41,14 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Sync Capacitor Android
-        run: npx cap sync android
+        run: |
+          mkdir -p android/app/src/main/assets
+          mkdir -p android/capacitor-cordova-android-plugins
+          npx cap sync android 2>&1 | tee sync.log || {
+            echo "::warning::npx cap sync android failed, falling back to copy"
+            cat sync.log
+            npx cap copy android
+          }
 
       - name: Accept Android SDK Licenses
         run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
