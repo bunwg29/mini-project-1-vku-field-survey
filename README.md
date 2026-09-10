@@ -9,8 +9,9 @@
 ## 1. GENERAL INFORMATION & DELIVERABLE LINKS
 * **Team Members:**
   1. **Trần Ka Bun** — Student ID: **23IT.B015** — Class: **23SE4** — Role: **Lead Developer / Full-stack Mobile Architecture** — Contribution: **100%**
-* **🔗 Live Demo URL:** [https://mini-project-1-vku-field-survey.vercel.app/](https://mini-project-1-vku-field-survey.vercel.app/)
-* **💻 GitHub Repository:** [https://github.com/bunwg29/mini-project-1-vku-field-survey](https://github.com/bunwg29/mini-project-1-vku-field-survey)
+* **🔗 Live Demo URL (PWA):** [https://mini-project-1-vku-field-survey.vercel.app/](https://mini-project-1-vku-field-survey.vercel.app/)
+* **📦 Direct APK Download:** [VKU-Field-Survey.apk (v1.0.0)](https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk)
+* **💻 GitHub Repository & CI/CD:** [https://github.com/bunwg29/mini-project-1-vku-field-survey](https://github.com/bunwg29/mini-project-1-vku-field-survey)
 
 ---
 
@@ -21,7 +22,7 @@
 | **1** | **PWA Standalone Installation** | ✅ Complete | • Valid `manifest.json` configured with `display: standalone`, official theme color `#0284c7`, background color `#ffffff`, and responsive icons (192×192, 512×512).<br>• Workbox Service Worker caching App Shell assets (`.html`, `.css`, `.js`, `.woff2`, `.svg`, `.png`) with **Cache-First** strategy for sub-second offline boot time. |
 | **2** | **Offline Form & Local Draft Persistence** | ✅ Complete | • Multi-step structured inspection form: Building, Floor, Room #, Category (*Hardware, Projector, AC, Electrical, Furniture*), 1–5 Star Condition Rating, Defect Notes, and Camera Photo capture.<br>• Real-time draft persistence into IndexedDB (`idb`) triggered on every keystroke with debounce to prevent data loss on unexpected browser refresh or tab close. |
 | **3** | **Offline Queue & Background Synchronization** | ✅ Complete | • Offline submissions are tagged with standard `UUID`, `createdAt` timestamp, and status `PENDING_SYNC`.<br>• Listens to both `window.ononline` browser events and `@capacitor/network` native listener to automatically dispatch queued surveys sequentially upon network restoration without duplicate requests.<br>• Live visual badges indicating Online / Offline status and pending sync counter. |
-| **4** | **Capacitor Native APK Compilation** | ✅ Complete | • Integrated `@capacitor/camera` for native photo capturing with PWA Web fallback (`@ionic/pwa-elements`).<br>• Integrated `@capacitor/network` and `@capacitor/geolocation` for device GPS location retrieval.<br>• Packaged and ready for Android APK compilation via Capacitor Android toolchain. |
+| **4** | **Capacitor Native APK Compilation** | ✅ Complete | • Integrated `@capacitor/camera` for native photo capturing with PWA Web fallback (`@ionic/pwa-elements`).<br>• Integrated `@capacitor/network` and `@capacitor/geolocation` for device GPS location retrieval.<br>• Packaged and published Android Native APK (`VKU-Field-Survey.apk`) with automated GitHub Actions CI/CD pipeline and local Gradle wrapper. |
 
 ---
 
@@ -153,13 +154,29 @@ npx vercel --prod
 ```
 
 ### 6.3. Build Android Native APK (Capacitor)
+#### Cách 1: Tải trực tiếp APK đã build sẵn
+Tải file cài đặt tại mục **Releases**:
+👉 **[Download VKU-Field-Survey.apk (Release v1.0.0)](https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk)**
+
+#### Cách 2: Tự động hóa qua GitHub Actions CI/CD
+Dự án đã thiết lập quy trình tự động build file APK thông qua GitHub Actions (`.github/workflows/build-apk.yml`). Mỗi khi push code lên nhánh `main`, hệ thống tự động:
+1. Setup môi trường Node.js 20, Java 21, Android SDK (API 34/36).
+2. Build Web Bundle (`npm run build`) và đồng bộ native (`npx cap sync android`).
+3. Chạy `./gradlew assembleDebug` để sinh file APK.
+4. Tự động xuất xưởng Artifact và phát hành GitHub Release kèm file APK hoàn chỉnh.
+
+#### Cách 3: Build thủ công bằng Android Studio / Gradle
 ```bash
 # 1. Build web distribution
 npm run build
 
-# 2. Sync with Android project
+# 2. Sync với thư mục native Android
 npx cap sync android
 
-# 3. Open Android Studio to build APK
+# 3. Mở Android Studio để Run/Build APK
 npx cap open android
+
+# Hoặc build trực tiếp bằng Gradle:
+cd android
+./gradlew assembleDebug
 ```

@@ -226,8 +226,9 @@
   <h2>1. GENERAL INFORMATION & DELIVERABLE LINKS</h2>
   <ul>
     <li><strong>Sinh viên thực hiện:</strong> Trần Ka Bun — <strong>MSSV:</strong> 23IT.B015 — <strong>Lớp:</strong> 23SE4 — <strong>Vai trò:</strong> Lead Developer & Mobile Architecture — <strong>Đóng góp:</strong> 100%</li>
-    <li><strong>🔗 Live Demo URL:</strong> <a href="https://mini-project-1-vku-field-survey.vercel.app/">https://mini-project-1-vku-field-survey.vercel.app/</a></li>
-    <li><strong>💻 GitHub Repository:</strong> <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a></li>
+    <li><strong>🔗 Live Demo URL (PWA):</strong> <a href="https://mini-project-1-vku-field-survey.vercel.app/">https://mini-project-1-vku-field-survey.vercel.app/</a></li>
+    <li><strong>📦 Direct APK Download:</strong> <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk">VKU-Field-Survey.apk (Android Native Build)</a></li>
+    <li><strong>💻 GitHub Repository & CI/CD:</strong> <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a></li>
   </ul>
 
   <!-- SECTION 2 -->
@@ -274,8 +275,8 @@
         <td><strong>Capacitor Native APK Compilation</strong></td>
         <td style="text-align: center;"><span class="badge-complete">✅ Complete</span></td>
         <td>
-          • Tích hợp <code>@capacitor/camera</code> để chụp ảnh phần cứng và <code>@capacitor/geolocation</code> để lấy tọa độ hiện trường.<br>
-          • Thiết lập cấu hình đóng gói Native Android APK thông qua Android Studio và Capacitor CLI.
+          • Tích hợp <code>@capacitor/camera</code> chụp ảnh hiện trường, <code>@capacitor/geolocation</code> định vị GPS, và <code>@capacitor/network</code> kiểm soát kết nối.<br>
+          • Đóng gói thành công Android Native APK (<code>VKU-Field-Survey.apk</code>) thông qua Capacitor Android v8 và pipeline tự động hóa GitHub Actions CI/CD.
         </td>
       </tr>
     </tbody>
@@ -368,9 +369,10 @@
   <div class="no-break">
     <h2>6. INSTRUCTIONS FOR EVALUATION</h2>
     <ul>
-      <li><strong>Truy cập trực tiếp Live Demo:</strong> Mở link <a href="https://mini-project-1-vku-field-survey.vercel.app/">https://mini-project-1-vku-field-survey.vercel.app/</a> trên trình duyệt di động hoặc Chrome. Bật chế độ <em>Offline</em> trong DevTools Network để thử nghiệm lưu trữ và đồng bộ.</li>
-      <li><strong>Cài đặt PWA:</strong> Nhấn vào biểu tượng <em>"Cài đặt ứng dụng / Thêm vào màn hình chính"</em> để cài đặt dưới dạng ứng dụng độc lập (Standalone PWA).</li>
-      <li><strong>Kiểm tra mã nguồn:</strong> Toàn bộ source code, lịch sử commit và hướng dẫn cài đặt chi tiết đã được công khai tại GitHub: <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a>.</li>
+      <li><strong>Cài đặt Android APK:</strong> Tải file <code>VKU-Field-Survey.apk</code> trực tiếp từ <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk">GitHub Releases</a> hoặc tệp tin dự án. Cài đặt trực tiếp trên Android và cấp quyền Camera & GPS để trải nghiệm đầy đủ.</li>
+      <li><strong>Trải nghiệm Live Demo (PWA):</strong> Mở link <a href="https://mini-project-1-vku-field-survey.vercel.app/">https://mini-project-1-vku-field-survey.vercel.app/</a> trên trình duyệt di động hoặc Chrome Desktop. Có thể bấm <em>"Cài đặt ứng dụng"</em> để chạy ở chế độ Standalone.</li>
+      <li><strong>Kiểm thử tính năng ngoại tuyến (Offline & Background Sync):</strong> Bật chế độ Airplane Mode hoặc ngắt mạng -> Thực hiện tạo phiếu kiểm tra -> Bật lại mạng -> Dữ liệu tự động đồng bộ lên máy chủ mà không bị mất hay trùng lặp.</li>
+      <li><strong>Mã nguồn & CI/CD Pipeline:</strong> Tham khảo toàn bộ mã nguồn, cấu hình Capacitor, và quy trình build APK tự động tại: <a href="https://github.com/bunwg29/mini-project-1-vku-field-survey">https://github.com/bunwg29/mini-project-1-vku-field-survey</a>.</li>
     </ul>
   </div>
 
