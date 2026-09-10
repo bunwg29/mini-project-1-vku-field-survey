@@ -1,28 +1,30 @@
 # MINI-PROJECT SHORT TECHNICAL REPORT
+
 **Course:** Cross-Platform Mobile App Development (VKU)  
 **Mini-Project Title:** Mini-Project 1: VKU Field Survey — Offline Data Collection (PWA & Capacitor)  
 **Team / Student Name:** Trần Ka Bun  
-**Submission Date:** 03/09/2026  
+**Submission Date:** 03/09/2026
 
 ---
 
 ## 1. GENERAL INFORMATION & DELIVERABLE LINKS
-* **Team Members:**
+
+- **Team Members:**
   1. **Trần Ka Bun** — Student ID: **23IT.B015** — Class: **23SE4** — Role: **Lead Developer / Full-stack Mobile Architecture** — Contribution: **100%**
-* **🔗 Live Demo URL (PWA):** [https://mini-project-1-vku-field-survey.vercel.app/](https://mini-project-1-vku-field-survey.vercel.app/)
-* **📦 Direct APK Download:** [VKU-Field-Survey.apk (v1.0.0)](https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk)
-* **💻 GitHub Repository & CI/CD:** [https://github.com/bunwg29/mini-project-1-vku-field-survey](https://github.com/bunwg29/mini-project-1-vku-field-survey)
+- **🔗 Live Demo URL (PWA):** [https://mini-project-1-vku-field-survey.vercel.app/](https://mini-project-1-vku-field-survey.vercel.app/)
+- **📦 Direct APK Download:** [VKU-Field-Survey.apk (v1.0.0)](https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk)
+- **💻 GitHub Repository & CI/CD:** [https://github.com/bunwg29/mini-project-1-vku-field-survey](https://github.com/bunwg29/mini-project-1-vku-field-survey)
 
 ---
 
 ## 2. FEATURE IMPLEMENTATION CHECKLIST
 
-| # | Required Feature | Status | Implementation Details & Acceptance Level |
-|:---:|---|:---:|---|
-| **1** | **PWA Standalone Installation** | ✅ Complete | • Valid `manifest.json` configured with `display: standalone`, official theme color `#0284c7`, background color `#ffffff`, and responsive icons (192×192, 512×512).<br>• Workbox Service Worker caching App Shell assets (`.html`, `.css`, `.js`, `.woff2`, `.svg`, `.png`) with **Cache-First** strategy for sub-second offline boot time. |
-| **2** | **Offline Form & Local Draft Persistence** | ✅ Complete | • Multi-step structured inspection form: Building, Floor, Room #, Category (*Hardware, Projector, AC, Electrical, Furniture*), 1–5 Star Condition Rating, Defect Notes, and Camera Photo capture.<br>• Real-time draft persistence into IndexedDB (`idb`) triggered on every keystroke with debounce to prevent data loss on unexpected browser refresh or tab close. |
+|   #   | Required Feature                               |   Status    | Implementation Details & Acceptance Level                                                                                                                                                                                                                                                                                                                                                               |
+| :---: | ---------------------------------------------- | :---------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **PWA Standalone Installation**                | ✅ Complete | • Valid `manifest.json` configured with `display: standalone`, official theme color `#0284c7`, background color `#ffffff`, and responsive icons (192×192, 512×512).<br>• Workbox Service Worker caching App Shell assets (`.html`, `.css`, `.js`, `.woff2`, `.svg`, `.png`) with **Cache-First** strategy for sub-second offline boot time.                                                             |
+| **2** | **Offline Form & Local Draft Persistence**     | ✅ Complete | • Multi-step structured inspection form: Building, Floor, Room #, Category (_Hardware, Projector, AC, Electrical, Furniture_), 1–5 Star Condition Rating, Defect Notes, and Camera Photo capture.<br>• Real-time draft persistence into IndexedDB (`idb`) triggered on every keystroke with debounce to prevent data loss on unexpected browser refresh or tab close.                                   |
 | **3** | **Offline Queue & Background Synchronization** | ✅ Complete | • Offline submissions are tagged with standard `UUID`, `createdAt` timestamp, and status `PENDING_SYNC`.<br>• Listens to both `window.ononline` browser events and `@capacitor/network` native listener to automatically dispatch queued surveys sequentially upon network restoration without duplicate requests.<br>• Live visual badges indicating Online / Offline status and pending sync counter. |
-| **4** | **Capacitor Native APK Compilation** | ✅ Complete | • Integrated `@capacitor/camera` for native photo capturing with PWA Web fallback (`@ionic/pwa-elements`).<br>• Integrated `@capacitor/network` and `@capacitor/geolocation` for device GPS location retrieval.<br>• Packaged and published Android Native APK (`VKU-Field-Survey.apk`) with automated GitHub Actions CI/CD pipeline and local Gradle wrapper. |
+| **4** | **Capacitor Native APK Compilation**           | ✅ Complete | • Integrated `@capacitor/camera` for native photo capturing with PWA Web fallback (`@ionic/pwa-elements`).<br>• Integrated `@capacitor/network` and `@capacitor/geolocation` for device GPS location retrieval.<br>• Packaged and published Android Native APK (`VKU-Field-Survey.apk`) with automated GitHub Actions CI/CD pipeline and local Gradle wrapper.                                          |
 
 ---
 
@@ -102,12 +104,14 @@ vku-field-survey/
 ## 4. EMPIRICAL EVIDENCE & SCREENSHOTS
 
 ### 4.1. Mobile Viewport & Inspection Form
-*Form khảo sát hỗ trợ chọn Tòa nhà, Tầng, Phòng, 5 Hạng mục trực quan, Đánh giá sao 1-5⭐, Ghi chú lỗi, Chụp ảnh Camera và Định vị GPS.*
+
+_Form khảo sát hỗ trợ chọn Tòa nhà, Tầng, Phòng, 5 Hạng mục trực quan, Đánh giá sao 1-5⭐, Ghi chú lỗi, Chụp ảnh Camera và Định vị GPS._
 
 ![Mobile Inspection Form](report_assets/screenshot_mobile_form.png)
 
 ### 4.2. Desktop & Tablet Responsive View
-*Giao diện mở rộng hiển thị trực quan thông tin sinh viên, trạng thái mạng Online/Offline theo thời gian thực và quản lý phiếu khảo sát.*
+
+_Giao diện mở rộng hiển thị trực quan thông tin sinh viên, trạng thái mạng Online/Offline theo thời gian thực và quản lý phiếu khảo sát._
 
 ![Desktop Form View](report_assets/screenshot_desktop_form.png)
 
@@ -116,18 +120,21 @@ vku-field-survey/
 ## 5. TECHNICAL CHALLENGES & RESOLUTIONS
 
 ### Challenge 1: Offline Image Persistence Across Browser Refreshes
-* **Vấn đề:** Khi sử dụng `@capacitor/camera` trên Web/PWA, phương thức trả về `blob:` hoặc `file:` URI tạm thời (temporary blob URL). Các URL này sẽ bị hủy (revoke) khi người dùng reload trang hoặc đóng tab, làm mất ảnh đã chụp trước khi kịp gửi lên server.
-* **Giải pháp:** Cấu hình Camera Service trả về `CameraResultType.DataUrl` (chuỗi Base64 hoàn chỉnh). Chuỗi dữ liệu này được lưu trực tiếp vào cơ sở dữ liệu IndexedDB của trình duyệt. Nhờ đó, hình ảnh vẫn tồn tại nguyên vẹn ngay cả khi thiết bị khởi động lại hoặc hoạt động offline nhiều ngày.
+
+- **Vấn đề:** Khi sử dụng `@capacitor/camera` trên Web/PWA, phương thức trả về `blob:` hoặc `file:` URI tạm thời (temporary blob URL). Các URL này sẽ bị hủy (revoke) khi người dùng reload trang hoặc đóng tab, làm mất ảnh đã chụp trước khi kịp gửi lên server.
+- **Giải pháp:** Cấu hình Camera Service trả về `CameraResultType.DataUrl` (chuỗi Base64 hoàn chỉnh). Chuỗi dữ liệu này được lưu trực tiếp vào cơ sở dữ liệu IndexedDB của trình duyệt. Nhờ đó, hình ảnh vẫn tồn tại nguyên vẹn ngay cả khi thiết bị khởi động lại hoặc hoạt động offline nhiều ngày.
 
 ### Challenge 2: Sequential Background Sync Orchestration & Race Conditions
-* **Vấn đề:** Khi thiết bị chuyển từ Offline sang Online, nhiều sự kiện mạng (`window.ononline`, `Network.addListener`) có thể kích hoạt đồng thời, dẫn đến tình trạng gửi trùng lặp (duplicate submissions) hoặc đụng độ dữ liệu nếu gửi bất đồng bộ song song.
-* **Giải pháp:** Thiết kế `syncService.ts` với cờ trạng thái `isSyncing` và cơ chế xử lý tuần tự (FIFO Sequential Queue). Mỗi bản ghi trong `syncQueue` chỉ được gỡ bỏ sau khi server phản hồi thành công và trạng thái trong bảng `surveys` được chuyển thành `SYNCED`. Nếu gặp lỗi kết nối giữa chừng, quá trình đồng bộ sẽ tạm dừng an toàn và chờ lần kết nối mạng kế tiếp.
+
+- **Vấn đề:** Khi thiết bị chuyển từ Offline sang Online, nhiều sự kiện mạng (`window.ononline`, `Network.addListener`) có thể kích hoạt đồng thời, dẫn đến tình trạng gửi trùng lặp (duplicate submissions) hoặc đụng độ dữ liệu nếu gửi bất đồng bộ song song.
+- **Giải pháp:** Thiết kế `syncService.ts` với cờ trạng thái `isSyncing` và cơ chế xử lý tuần tự (FIFO Sequential Queue). Mỗi bản ghi trong `syncQueue` chỉ được gỡ bỏ sau khi server phản hồi thành công và trạng thái trong bảng `surveys` được chuyển thành `SYNCED`. Nếu gặp lỗi kết nối giữa chừng, quá trình đồng bộ sẽ tạm dừng an toàn và chờ lần kết nối mạng kế tiếp.
 
 ---
 
 ## 6. INSTRUCTIONS FOR LOCAL EXECUTION & DEPLOYMENT
 
 ### 6.1. Run Locally (Development)
+
 ```bash
 # 1. Install dependencies
 npm install
@@ -142,30 +149,37 @@ cd server && npm install && npm run dev
 ### 6.2. Build & Deploy Live Demo
 
 #### Option A: Cloudflare Pages
+
 ```bash
 npm run build
 npx wrangler pages deploy dist --project-name mini-project-1-vku-field-survey
 ```
 
 #### Option B: Vercel
+
 ```bash
 npm run build
 npx vercel --prod
 ```
 
 ### 6.3. Build Android Native APK (Capacitor)
+
 #### Cách 1: Tải trực tiếp APK đã build sẵn
+
 Tải file cài đặt tại mục **Releases**:
 👉 **[Download VKU-Field-Survey.apk (Release v1.0.0)](https://github.com/bunwg29/mini-project-1-vku-field-survey/releases/download/v1.0.0/VKU-Field-Survey.apk)**
 
 #### Cách 2: Tự động hóa qua GitHub Actions CI/CD
+
 Dự án đã thiết lập quy trình tự động build file APK thông qua GitHub Actions (`.github/workflows/build-apk.yml`). Mỗi khi push code lên nhánh `main`, hệ thống tự động:
+
 1. Setup môi trường Node.js 20, Java 21, Android SDK (API 34/36).
 2. Build Web Bundle (`npm run build`) và đồng bộ native (`npx cap sync android`).
 3. Chạy `./gradlew assembleDebug` để sinh file APK.
 4. Tự động xuất xưởng Artifact và phát hành GitHub Release kèm file APK hoàn chỉnh.
 
 #### Cách 3: Build thủ công bằng Android Studio / Gradle
+
 ```bash
 # 1. Build web distribution
 npm run build
